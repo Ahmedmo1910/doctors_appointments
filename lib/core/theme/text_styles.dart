@@ -15,4 +15,16 @@ class TextStyles {
     color: AppColors.primaryColor,
     fontWeight: FontWeight.w900,
   );
+
+  static TextStyle font13greyW400 = TextStyle(
+    fontSize: 13.sp,
+    color: AppColors.gray,
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle font16whiteW600 = TextStyle(
+    fontSize: 16.sp,
+    color: Colors.white,
+    fontWeight: FontWeight.w600,
+  );
 }

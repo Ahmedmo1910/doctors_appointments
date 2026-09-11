@@ -9,6 +9,7 @@ class DocLogoAndName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SvgPicture.asset('assets/svgs/logo.svg', width: 50.w, height: 50.h),
         SizedBox(width: 10.w),
