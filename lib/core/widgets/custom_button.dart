@@ -1,41 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:doctors_appointments/core/theme/app_colors.dart';
-import 'package:doctors_appointments/core/theme/text_styles.dart';
 
-class MainButton extends StatelessWidget {
-  final String? text;
-  final VoidCallback? onTap;
-  final bool hasCircularBorder;
-  final Widget? child;
-
-  MainButton({
+class CustomButton extends StatelessWidget {
+  final double? borderRadius;
+  final Color? backgroundColor;
+  final double? horizontalPadding;
+  final double? verticalPadding;
+  final double? buttonWidth;
+  final double? buttonHeight;
+  final String buttonText;
+  final TextStyle textStyle;
+  final VoidCallback onPressed;
+  const CustomButton({
     super.key,
-    this.text,
-    this.onTap,
-    this.hasCircularBorder = false,
-    this.child,
-  }) {
-    assert(text != null || child != null);
-  }
+    this.borderRadius,
+    this.backgroundColor,
+    this.horizontalPadding,
+    this.verticalPadding,
+    this.buttonHeight,
+    this.buttonWidth,
+    required this.buttonText,
+    required this.textStyle,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: 56,
-      child: ElevatedButton(
-        onPressed: onTap,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primaryColor,
-          foregroundColor: Colors.white,
-          shape: hasCircularBorder
-              ? RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0))
-              : null,
+    return TextButton(
+      style: ButtonStyle(
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(borderRadius ?? 16.0),
+          ),
         ),
-        child: text != null
-            ? Text(text!, style: TextStyles.font16whiteW600)
-            : child,
+        backgroundColor: WidgetStatePropertyAll(
+          backgroundColor ?? AppColors.primaryColor,
+        ),
+        padding: WidgetStateProperty.all<EdgeInsets>(
+          EdgeInsets.symmetric(
+            horizontal: horizontalPadding?.w ?? 12.w,
+            vertical: verticalPadding?.h ?? 14.h,
+          ),
+        ),
+        fixedSize: WidgetStateProperty.all(
+          Size(buttonWidth?.w ?? double.maxFinite, buttonHeight ?? 50.h),
+        ),
       ),
+      onPressed: onPressed,
+      child: Text(buttonText, style: textStyle),
     );
   }
 }

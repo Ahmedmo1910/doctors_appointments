@@ -29,13 +29,13 @@ class OnboardingScreen extends StatelessWidget {
                       Text(
                         'Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.',
                         textAlign: TextAlign.center,
-                        style: TextStyles.font13greyW400,
+                        style: TextStyles.font13greyRegular,
                       ),
                       SizedBox(height: 20.h),
-                      MainButton(
-                        hasCircularBorder: true,
-                        text: 'Get Started',
-                        onTap: () {
+                      CustomButton(
+                        buttonText: 'Get Started',
+                        textStyle: TextStyles.font16whiteSemiBold,
+                        onPressed: () {
                           context.pushNamed(Routes.loginScreen);
                         },
                       ),
