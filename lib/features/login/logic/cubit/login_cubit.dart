@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/networking/api_result.dart';
@@ -9,6 +10,9 @@ class LoginCubit extends Cubit<LoginState> {
   final LoginRepo _loginRepo;
   LoginCubit(this._loginRepo) : super(const LoginState.initial());
 
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
   void emitLoginState(LoginRequestBody loginRequestBody) async {
     emit(const LoginState.loading());
     final result = await _loginRepo.login(loginRequestBody);
@@ -18,7 +22,11 @@ class LoginCubit extends Cubit<LoginState> {
         emit(LoginState.success(loginResponse));
       },
       failure: (failure) {
-        emit(LoginState.failure(error: failure.apiErrorModel.message ?? 'An unknown error occurred'));
+        emit(
+          LoginState.failure(
+            error: failure.apiErrorModel.message ?? 'An unknown error occurred',
+          ),
+        );
       },
     );
   }
