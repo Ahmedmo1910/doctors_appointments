@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:doctors_appointments/core/helpers/spacing.dart';
 import 'package:doctors_appointments/core/theme/text_styles.dart';
 import 'package:doctors_appointments/core/widgets/custom_button.dart';
-import '../data/models/login_request_body.dart';
 import '../logic/cubit/login_cubit.dart';
 import 'widgets/email_and_password.dart';
 import 'widgets/dont_have_account_text.dart';
@@ -68,11 +67,6 @@ class LoginScreen extends StatelessWidget {
 
 void validateThenDoLogin(BuildContext context) {
   if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-    context.read<LoginCubit>().emitLoginState(
-      LoginRequestBody(
-        email: context.read<LoginCubit>().emailController.text,
-        password: context.read<LoginCubit>().passwordController.text,
-      ),
-    );
+    context.read<LoginCubit>().emitLoginState();
   }
 }

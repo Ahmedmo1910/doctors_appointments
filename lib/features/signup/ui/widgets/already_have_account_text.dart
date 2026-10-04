@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
-
 import 'package:doctors_appointments/core/routing/routes.dart';
 import 'package:doctors_appointments/core/theme/text_styles.dart';
 import 'package:doctors_appointments/core/helpers/extensions.dart';
 
-class DontHaveAccountText extends StatelessWidget {
-  const DontHaveAccountText({super.key});
+class AlreadyHaveAccountText extends StatelessWidget {
+  const AlreadyHaveAccountText({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,15 +14,15 @@ class DontHaveAccountText extends StatelessWidget {
       text: TextSpan(
         children: [
           TextSpan(
-            text: 'Don\'t have an account?',
+            text: 'Already have an account?',
             style: TextStyles.font13darkPrimaryColorRegular,
           ),
           TextSpan(
-            text: ' Sign Up',
+            text: ' Login',
             style: TextStyles.font13BlueSemiBold,
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                context.pushReplacementNamed(Routes.signupScreen);
+                context.pushReplacementNamed(Routes.loginScreen);
               },
           ),
         ],
