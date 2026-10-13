@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "904651868889",
+    "project_id": "flutter-app-distribution-26604",
+    "storage_bucket": "flutter-app-distribution-26604.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904651868889:android:3afeb00e3a6a87f0f00cc8",
+        "android_client_info": {
+          "package_name": "com.example.doctors_appointments"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhaZsnjwvv6itq_LOsx7_SbJtaFWmPWk8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904651868889:android:949ab2c14c4af640f00cc8",
+        "android_client_info": {
+          "package_name": "com.example.doctors_appointments.production"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhaZsnjwvv6itq_LOsx7_SbJtaFWmPWk8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
