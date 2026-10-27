@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: AppColors.backgroundColor,
         ),
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.onboardingScreen,
+        initialRoute: Routes.homeScreen,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );
