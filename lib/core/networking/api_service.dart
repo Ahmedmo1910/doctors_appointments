@@ -4,6 +4,7 @@ import '../../features/login/data/models/login_request_body.dart';
 import '../../features/login/data/models/login_response.dart';
 import '../../features/signup/data/models/signup_request_body.dart';
 import '../../features/signup/data/models/signup_response_body.dart';
+import '../../features/home/data/models/specialization_response_model.dart';
 import 'api_constants.dart';
 
 part 'api_service.g.dart';
@@ -19,4 +20,7 @@ abstract class ApiService {
   Future<SignupResponseBody> register(
     @Body() SignupRequestBody signupRequestBody,
   );
+
+  @GET(ApiConstants.specialization)
+  Future<SpecializationResponseModel> getSpecialization();
 }
