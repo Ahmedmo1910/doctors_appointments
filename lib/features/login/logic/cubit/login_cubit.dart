@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/helpers/constants.dart';
+import '../../../../core/helpers/shared_pref_helper.dart';
 import '../../../../core/networking/api_result.dart';
 import '../../data/models/login_request_body.dart';
 import '../../data/repos/login_repo.dart';
@@ -23,7 +25,8 @@ class LoginCubit extends Cubit<LoginState> {
     );
 
     result.when(
-      success: (loginResponse) {
+      success: (loginResponse) async {
+        await saveUserToken(loginResponse.userData?.token ?? '');
         emit(LoginState.success(loginResponse));
       },
       failure: (failure) {
@@ -34,5 +37,9 @@ class LoginCubit extends Cubit<LoginState> {
         );
       },
     );
+  }
+
+  Future<void> saveUserToken(String token) async {
+    await SharedPrefHelper.setData(Constants.userToken, token);
   }
 }

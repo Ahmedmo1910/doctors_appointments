@@ -58,6 +58,8 @@ dependencies:
   # For adapting screen and font size
   flutter_screenutil: ^5.9.3
   firebase_core: ^4.15.0
+  # Reading and writing simple key-value pairs
+  shared_preferences: ^2.5.6
 
   
 
